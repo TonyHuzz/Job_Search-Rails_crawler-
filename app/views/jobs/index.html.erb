@@ -1,0 +1,20 @@
+<h1>Jobs Search Result</h1>
+
+
+<%= form_for :search, url: '/jobs/search', method: :post do |f| %>
+  <%= f.text_field :keyword %>
+  <%= f.submit "搜尋" %>
+<% end %>
+
+
+<% if @jobs %>
+  <ul>
+    <% @jobs.each do |job| %>
+      <li>
+        <strong>職缺名稱: <%= job.title %></strong>
+        <p>公司名稱: <%= job.company %></p>
+        <p>公司地點: <%= job.location %></p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
